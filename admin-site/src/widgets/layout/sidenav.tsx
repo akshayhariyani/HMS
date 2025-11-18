@@ -64,7 +64,10 @@ export function Sidenav({ brandImg = "/img/logo-ct.png", brandName = "HMS Admin 
           <XMarkIcon strokeWidth={2.5} className="h-5 w-5 text-white" />
         </IconButton>
       </div>
-      <div className="m-4">
+      <div
+        className="overflow-y-auto pr-3 pb-6 scrollbar-thin scrollbar-thumb-blue-200"
+        style={{ height: "calc(100vh - 64px)" }} // adjust 64px to your header/navbar height
+      >
         {routes.map(({ layout, title, pages }, key) => (
           <ul key={key} className="mb-4 flex flex-col gap-1">
             {title && (
@@ -108,6 +111,8 @@ export function Sidenav({ brandImg = "/img/logo-ct.png", brandName = "HMS Admin 
             ))}
           </ul>
         ))}
+        {/* spacer so last item doesn't touch rounded corner / bottom */}
+        <div className="h-6" />
       </div>
     </aside>
   );
