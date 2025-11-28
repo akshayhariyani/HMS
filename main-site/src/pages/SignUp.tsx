@@ -366,13 +366,15 @@ const SignUp = () => {
         }
 
         /* --- RIGHT SIDE (SCROLLABLE FORM) --- */
-        .login-form-side {
+         .login-form-side {
           flex: 1;
-          height: 100%;
-          overflow-y: auto;
-          display: block;
-          background: #fff;
-          padding: 24px 40px; /* Reduced top padding for smaller screens */
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          padding: 3rem;
+          position: relative;
+          max-width: 700px;
+          margin: 0 auto;
         }
 
         /* Custom Scrollbar */
