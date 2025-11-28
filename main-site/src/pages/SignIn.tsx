@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import AOS from "aos";
+import "aos/dist/aos.css";
 
 const SignIn = () => {
   const [formData, setFormData] = useState({
@@ -8,14 +9,14 @@ const SignIn = () => {
     password: "",
   });
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
 
   useEffect(() => {
     AOS.init({
-      duration: 600,
-      easing: "ease-in-out",
+      duration: 800,
+      easing: "ease-out-cubic",
       once: true,
-      mirror: false,
     });
   }, []);
 
@@ -26,7 +27,7 @@ const SignIn = () => {
 
     setTimeout(() => {
       setLoading(false);
-    }, 1500);
+    }, 2000);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -37,518 +38,548 @@ const SignIn = () => {
   };
 
   return (
-    <>
-      <div className="auth-page-wrapper">
-        <div className="auth-container">
-          {/* Centered Content */}
-          <div className="auth-center-wrapper">
-            {/* Logo Section */}
-            <div className="auth-brand" data-aos="fade-up" data-aos-delay="100">
-              <Link to="/" className="auth-brand-link">
-                <div className="auth-brand-icon">
-                  <i className="bi bi-heart-pulse-fill"></i>
-                </div>
-                <h1 className="auth-brand-name">MediTrust</h1>
-              </Link>
+    <div className="login-wrapper">
+      <div className="login-container">
+
+        {/* Left Side: Form Section */}
+        <div className="login-form-side" data-aos="fade-up" data-aos-delay="100">
+          <div className="login-content-max">
+
+            {/* Logo */}
+            <div className="brand-logo" data-aos="fade-down">
+              <div className="brand-icon">
+                <i className="bi bi-hospital-fill"></i>
+              </div>
+              <span className="brand-text">MediTrust<span className="brand-dot">.</span></span>
             </div>
 
-            {/* Form Card */}
-            <div
-              className="auth-form-card"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              <div className="auth-form-header">
-                <div className="auth-form-icon">
-                  <i className="bi bi-heart-pulse-fill"></i>
-                </div>
-                <h2 className="auth-form-title">Welcome Back</h2>
-                <p className="auth-form-subtitle">
-                  Sign in to access your patient portal
-                </p>
-              </div>
+            <div className="form-header">
+              <h1>Welcome Back</h1>
+              <p>Please enter your credentials to access the hospital admin panel.</p>
+            </div>
 
-              <form onSubmit={handleSubmit} className="auth-form">
-                {error && <div className="auth-error-message">{error}</div>}
+            <form onSubmit={handleSubmit} className="modern-form">
+              {error && <div className="error-alert"><i className="bi bi-exclamation-circle"></i> {error}</div>}
 
-                <div className="auth-form-group">
-                  <label htmlFor="email" className="auth-form-label">
-                    <i className="bi bi-envelope me-2"></i>
-                    Email Address
-                  </label>
+              {/* Email Input */}
+              <div className="input-group">
+                <label htmlFor="email">Email Address</label>
+                <div className="input-wrapper">
+                  <span className="input-icon">
+                    <i className="bi bi-envelope"></i>
+                  </span>
                   <input
                     type="email"
-                    className="auth-form-input"
                     id="email"
                     name="email"
-                    placeholder="your.email@example.com"
+                    className="form-input"
+                    placeholder="doctor@meditrust.com"
                     value={formData.email}
                     onChange={handleChange}
                     required
                   />
                 </div>
+              </div>
 
-                <div className="auth-form-group">
-                  <label htmlFor="password" className="auth-form-label">
-                    <i className="bi bi-lock-fill me-2"></i>
-                    Password
-                  </label>
+              {/* Password Input */}
+              <div className="input-group">
+                <label htmlFor="password">Password</label>
+                <div className="input-wrapper">
+                  <span className="input-icon">
+                    <i className="bi bi-shield-lock"></i>
+                  </span>
                   <input
-                    type="password"
-                    className="auth-form-input"
+                    type={showPassword ? "text" : "password"}
                     id="password"
                     name="password"
-                    placeholder="Enter your password"
+                    className="form-input"
+                    placeholder="••••••••"
                     value={formData.password}
                     onChange={handleChange}
                     required
                   />
-                </div>
-
-                <div className="auth-form-options">
-                  <div className="auth-form-check">
-                    <input
-                      type="checkbox"
-                      id="remember"
-                      className="auth-checkbox"
-                    />
-                    <label htmlFor="remember" className="auth-checkbox-label">
-                      Remember me
-                    </label>
-                  </div>
-                  <Link to="/forgot-password" className="auth-link">
-                    Forgot Password?
-                  </Link>
-                </div>
-
-                <button
-                  type="submit"
-                  className="auth-submit-btn"
-                  disabled={loading}
-                >
-                  {loading ? (
-                    <>
-                      <span className="auth-spinner"></span>
-                      Signing in...
-                    </>
-                  ) : (
-                    <>
-                      <i className="bi bi-box-arrow-in-right me-2"></i>
-                      Sign In
-                    </>
-                  )}
-                </button>
-
-                <div className="auth-divider">
-                  <span>Or continue with</span>
-                </div>
-
-                <div className="auth-social-buttons">
-                  <button type="button" className="auth-social-btn">
-                    <svg width="20" height="20" viewBox="0 0 18 18" fill="none">
-                      <path
-                        d="M17.3442 9.18429C17.3442 8.64047 17.3001 8.09371 17.206 7.55872H9.66016V10.6394H13.9813C13.802 11.6329 13.2258 12.5119 12.3822 13.0704V15.0693H14.9602C16.4741 13.6759 17.3442 11.6182 17.3442 9.18429Z"
-                        fill="#4285F4"
-                      />
-                      <path
-                        d="M9.65974 17.0006C11.8174 17.0006 13.637 16.2922 14.9627 15.0693L12.3847 13.0704C11.6675 13.5584 10.7415 13.8347 9.66268 13.8347C7.5756 13.8347 5.80598 12.4266 5.17104 10.5336H2.51074V12.5942C3.86882 15.2956 6.63494 17.0006 9.65974 17.0006Z"
-                        fill="#34A853"
-                      />
-                      <path
-                        d="M5.16852 10.5336C4.83341 9.53999 4.83341 8.46411 5.16852 7.47054V5.40991H2.51116C1.37649 7.67043 1.37649 10.3337 2.51116 12.5942L5.16852 10.5336Z"
-                        fill="#FBBC04"
-                      />
-                      <path
-                        d="M9.65974 4.16644C10.8003 4.1488 11.9026 4.57798 12.7286 5.36578L15.0127 3.08174C13.5664 1.72367 11.6469 0.0229773 9.65974 0.000539111C6.63494 0.000539111 3.86882 1.70548 2.51074 4.40987L5.1681 6.4705C5.8001 4.57449 7.57266 3.16644 9.65974 3.16644Z"
-                        fill="#EA4335"
-                      />
-                    </svg>
-                    Google
+                  <button
+                    type="button"
+                    className="password-toggle"
+                    onClick={() => setShowPassword(!showPassword)}
+                    tabIndex={-1}
+                  >
+                    <i className={`bi ${showPassword ? 'bi-eye-slash' : 'bi-eye'}`}></i>
                   </button>
-                  <button type="button" className="auth-social-btn">
+                </div>
+              </div>
+
+              <div className="form-actions">
+                <label className="custom-checkbox">
+                  <input type="checkbox" />
+                  <span className="checkmark"></span>
+                  <span className="label-text">Remember me</span>
+                </label>
+                <Link to="/forgot-password" className="forgot-link">Forgot password?</Link>
+              </div>
+
+              <button type="submit" className="submit-btn" disabled={loading}>
+                {loading ? <span className="loader"></span> : "Access Portal"}
+              </button>
+            </form>
+
+            <div className="form-footer">
+              <p>New staff member? <Link to="/sign-up">Create an account</Link></p>
+
+              <div className="social-login">
+                <span>Or sign in with</span>
+                <div className="social-icons">
+                  <button type="button" className="social-btn google">
+                    <i className="bi bi-google"></i>
+                  </button>
+                  <button type="button" className="social-btn microsoft">
                     <i className="bi bi-microsoft"></i>
-                    Microsoft
                   </button>
                 </div>
-
-                <div className="auth-form-footer">
-                  <p>
-                    Don't have an account?{" "}
-                    <Link to="/sign-up" className="auth-link-primary">
-                      Sign Up
-                    </Link>
-                  </p>
-                </div>
-              </form>
+              </div>
             </div>
           </div>
         </div>
-        <style>{`
-        .auth-page-wrapper {
+
+        {/* Right Side: Visual Section */}
+        <div className="login-visual-side">
+          <div className="visual-overlay"></div>
+          <div className="visual-content">
+            <div className="glass-card" data-aos="zoom-in" data-aos-delay="400">
+              <div className="glass-icon">
+                <i className="bi bi-heart-pulse"></i>
+              </div>
+              <h3>Advanced Care</h3>
+              <p>Streamlining hospital operations for better patient outcomes.</p>
+              <div className="stats-row">
+                <div className="stat">
+                  <span className="stat-num">24/7</span>
+                  <span className="stat-desc">Support</span>
+                </div>
+                <div className="stat">
+                  <span className="stat-num">99%</span>
+                  <span className="stat-desc">Uptime</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <style>{`
+        /* --- RESET & VARIABLES --- */
+        :root {
+          --primary-color: #0e7490;
+          --primary-hover: #155e75;
+          --accent-color: #06b6d4;
+          --bg-color: #f8fafc;
+          --text-main: #0f172a;
+          --text-muted: #64748b;
+          --border-color: #cbd5e1;
+          --input-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .login-wrapper {
           min-height: 100vh;
           width: 100%;
-          overflow-x: hidden;
-          background: #ffffff;
+          background: var(--bg-color);
+          font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        .login-container {
           display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 2rem 1rem;
-        }
-
-        .auth-container {
-          width: 100%;
-          max-width: 1400px;
-          margin: 0 auto;
-        }
-
-        .auth-center-wrapper {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          width: 100%;
-          max-width: 500px;
-          margin: 0 auto;
-        }
-
-        .auth-brand {
-          margin-bottom: 2.5rem;
-          text-align: center;
-        }
-
-        .auth-brand-link {
-          display: inline-flex;
-          flex-direction: column;
-          align-items: center;
-          text-decoration: none;
-          color: inherit;
-        }
-
-        .auth-brand-icon {
-          width: 70px;
-          height: 70px;
-          background: linear-gradient(135deg, #049ebb 0%, #06b6d4 100%);
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          box-shadow: 0 8px 24px rgba(4, 158, 187, 0.25);
-          margin-bottom: 1rem;
-        }
-
-        .auth-brand-icon i {
-          font-size: 2rem;
-          color: white;
-        }
-
-        .auth-brand-name {
-          font-size: 1.75rem;
-          font-weight: 700;
-          color: var(--heading-color);
-          margin: 0;
-          font-family: var(--heading-font);
-        }
-
-        .auth-form-card {
+          min-height: 100vh;
           background: white;
-          border-radius: 24px;
-          box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-          padding: 2.5rem;
+        }
+
+        /* --- LEFT SIDE: FORM --- */
+      .login-form-side {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          padding: 3rem;
+          position: relative;
+          max-width: 700px;
+          margin: 0 auto;
+        }
+
+        .login-content-max {
           width: 100%;
-          max-width: 500px;
+          max-width: 440px;
+          margin: 0 auto;
         }
 
-        .auth-form-header {
-          text-align: center;
-          margin-bottom: 2rem;
+        /* Logo & Header */
+        .brand-logo {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          margin-bottom: 40px;
         }
 
-        .auth-form-icon {
-          width: 64px;
-          height: 64px;
-          background: linear-gradient(135deg, #049ebb 0%, #06b6d4 100%);
-          border-radius: 50%;
-          display: inline-flex;
+        .brand-icon {
+          width: 44px;
+          height: 44px;
+          background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+          border-radius: 12px;
+          display: flex;
           align-items: center;
           justify-content: center;
-          box-shadow: 0 6px 20px rgba(4, 158, 187, 0.25);
-          margin-bottom: 1.25rem;
-        }
-
-        .auth-form-icon i {
-          font-size: 1.75rem;
           color: white;
+          font-size: 22px;
         }
 
-        .auth-form-title {
-          font-size: 1.875rem;
+        .brand-text {
+          font-size: 24px;
           font-weight: 700;
-          color: var(--heading-color);
-          margin-bottom: 0.5rem;
-          font-family: var(--heading-font);
+          color: var(--text-main);
         }
 
-        .auth-form-subtitle {
-          color: #6b7280;
-          font-size: 0.9375rem;
-          margin: 0;
+        .form-header h1 {
+          font-size: 32px;
+          font-weight: 700;
+          color: var(--text-main);
+          margin-bottom: 12px;
         }
 
-        .auth-form {
+        .form-header p {
+          color: var(--text-muted);
+          font-size: 16px;
+          line-height: 1.5;
+          margin-bottom: 32px;
+        }
+
+        /* --- FIXED INPUT STYLING --- */
+        .modern-form {
           width: 100%;
         }
 
-        .auth-form-group {
-          margin-bottom: 1.5rem;
+        .input-group {
+          margin-bottom: 24px;
+          display: flex;
+          flex-direction: column; /* Force vertical stacking */
+          align-items: flex-start;
+          width: 100%;
         }
 
-        .auth-form-label {
-          display: block;
-          font-size: 0.875rem;
+        .input-group label {
+          font-size: 14px;
           font-weight: 600;
-          color: var(--default-color);
-          margin-bottom: 0.5rem;
+          color: var(--text-main);
+          margin-bottom: 8px; /* Space between label and input */
+          display: block;
         }
 
-        .auth-form-label i {
-          color: var(--accent-color);
-        }
-
-        .auth-form-input {
+        .input-wrapper {
+          position: relative;
           width: 100%;
-          padding: 0.875rem 1rem;
-          border: 1.5px solid #e5e7eb;
-          border-radius: 12px;
-          font-size: 0.9375rem;
-          transition: all 0.3s;
-          background: #fafafa;
+          display: flex;
+          align-items: center;
         }
 
-        .auth-form-input:focus {
+        /* The Input Field */
+        .form-input {
+          width: 100%;
+          height: 52px; /* Fixed height for consistency */
+          padding: 0 16px 0 48px; /* Left padding makes room for icon */
+          background: var(--input-bg);
+          border: 1.5px solid var(--border-color);
+          border-radius: 12px;
+          font-size: 16px;
+          color: var(--text-main);
+          transition: all 0.2s ease;
+        }
+
+        .form-input:focus {
           outline: none;
           border-color: var(--accent-color);
-          background: white;
-          box-shadow: 0 0 0 4px rgba(4, 158, 187, 0.1);
+          box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.1);
         }
 
-        .auth-form-options {
+        /* The Icon (Left) */
+        .input-icon {
+          position: absolute;
+          left: 16px;
+          top: 50%;
+          transform: translateY(-50%);
+          color: var(--text-muted);
+          font-size: 18px;
+          pointer-events: none; /* Allows click through to input */
+          display: flex;
+          align-items: center;
+        }
+
+        .form-input:focus + .input-icon,
+        .input-wrapper:focus-within .input-icon {
+          color: var(--primary-color);
+        }
+
+        /* The Password Toggle (Right) */
+        .password-toggle {
+          position: absolute;
+          right: 16px;
+          top: 50%;
+          transform: translateY(-50%);
+          background: none;
+          border: none;
+          color: var(--text-muted);
+          cursor: pointer;
+          padding: 4px;
+          display: flex;
+          align-items: center;
+          transition: color 0.2s;
+        }
+
+        .password-toggle:hover {
+          color: var(--text-main);
+        }
+
+        /* --- FORM ACTIONS --- */
+        .form-actions {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          margin-bottom: 1.5rem;
+          margin-bottom: 32px;
         }
 
-        .auth-form-check {
+        .custom-checkbox {
           display: flex;
           align-items: center;
-        }
-
-        .auth-checkbox {
-          width: 18px;
-          height: 18px;
-          margin-right: 0.5rem;
           cursor: pointer;
-          accent-color: var(--accent-color);
         }
 
-        .auth-checkbox-label {
-          font-size: 0.875rem;
-          color: #6b7280;
-          cursor: pointer;
-          margin: 0;
+        .custom-checkbox input {
+          display: none;
         }
 
-        .auth-link {
-          font-size: 0.875rem;
-          color: var(--accent-color);
+        .checkmark {
+          width: 20px;
+          height: 20px;
+          border: 2px solid var(--border-color);
+          border-radius: 6px;
+          margin-right: 8px;
+          position: relative;
+          transition: all 0.2s;
+        }
+
+        .custom-checkbox input:checked + .checkmark {
+          background: var(--primary-color);
+          border-color: var(--primary-color);
+        }
+
+        .custom-checkbox input:checked + .checkmark:after {
+          content: "";
+          position: absolute;
+          left: 6px;
+          top: 2px;
+          width: 5px;
+          height: 10px;
+          border: solid white;
+          border-width: 0 2px 2px 0;
+          transform: rotate(45deg);
+        }
+
+        .label-text {
+          font-size: 14px;
+          color: var(--text-muted);
+        }
+
+        .forgot-link {
+          font-size: 14px;
+          color: var(--primary-color);
           text-decoration: none;
-          font-weight: 500;
-          transition: color 0.3s;
+          font-weight: 600;
         }
 
-        .auth-link:hover {
-          color: #038a9e;
-        }
-
-        .auth-submit-btn {
+        /* --- BUTTONS --- */
+        .submit-btn {
           width: 100%;
-          padding: 0.875rem 1.5rem;
-          background: linear-gradient(135deg, #049ebb 0%, #06b6d4 100%);
+          height: 52px;
+          background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
           color: white;
           border: none;
           border-radius: 12px;
-          font-size: 1rem;
+          font-size: 16px;
           font-weight: 600;
           cursor: pointer;
-          transition: all 0.3s;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin-bottom: 1.5rem;
-          box-shadow: 0 4px 12px rgba(4, 158, 187, 0.3);
+          transition: transform 0.2s, box-shadow 0.2s;
         }
 
-        .auth-submit-btn:hover:not(:disabled) {
+        .submit-btn:hover:not(:disabled) {
           transform: translateY(-2px);
-          box-shadow: 0 6px 20px rgba(4, 158, 187, 0.4);
+          box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3);
         }
 
-        .auth-submit-btn:disabled {
+        .submit-btn:disabled {
           opacity: 0.7;
           cursor: not-allowed;
         }
 
-        .auth-spinner {
-          width: 18px;
-          height: 18px;
-          border: 2px solid rgba(255, 255, 255, 0.3);
-          border-top-color: white;
-          border-radius: 50%;
-          animation: spin 0.8s linear infinite;
-          margin-right: 0.5rem;
-        }
-
-        @keyframes spin {
-          to { transform: rotate(360deg); }
-        }
-
-        .auth-divider {
-          position: relative;
+        /* --- FOOTER & SOCIAL --- */
+        .form-footer {
+          margin-top: 40px;
           text-align: center;
-          margin: 1.5rem 0;
         }
 
-        .auth-divider::before {
-          content: '';
-          position: absolute;
-          left: 0;
-          top: 50%;
-          width: 100%;
-          height: 1px;
-          background: #e5e7eb;
+        .form-footer p {
+          color: var(--text-muted);
+          font-size: 14px;
+          margin-bottom: 24px;
         }
 
-        .auth-divider span {
+        .form-footer a {
+          color: var(--primary-color);
+          font-weight: 600;
+          text-decoration: none;
+        }
+
+        .social-login {
           position: relative;
+          border-top: 1px solid var(--border-color);
+          padding-top: 24px;
+        }
+
+        .social-login span {
+          position: absolute;
+          top: -10px;
+          left: 50%;
+          transform: translateX(-50%);
           background: white;
-          padding: 0 1rem;
-          color: #9ca3af;
-          font-size: 0.875rem;
+          padding: 0 10px;
+          color: var(--text-muted);
+          font-size: 12px;
         }
 
-        .auth-social-buttons {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 0.75rem;
-          margin-bottom: 1.5rem;
+        .social-icons {
+          display: flex;
+          justify-content: center;
+          gap: 16px;
         }
 
-        .auth-social-btn {
-          padding: 0.75rem 1rem;
-          border: 1.5px solid #e5e7eb;
+        .social-btn {
+          width: 48px;
+          height: 48px;
+          border: 1px solid var(--border-color);
           border-radius: 12px;
           background: white;
-          color: var(--default-color);
-          font-size: 0.875rem;
-          font-weight: 500;
+          font-size: 20px;
           cursor: pointer;
-          transition: all 0.3s;
+          transition: all 0.2s;
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: 0.5rem;
         }
 
-        .auth-social-btn:hover {
-          border-color: var(--accent-color);
-          background: #f8fbfc;
+        .social-btn:hover {
+          background: #f1f5f9;
+          border-color: var(--text-muted);
         }
 
-        .auth-social-btn i {
-          font-size: 1.125rem;
-          color: var(--accent-color);
+        .social-btn.google { color: #EA4335; }
+        .social-btn.microsoft { color: #00A4EF; }
+
+        /* --- RIGHT SIDE: VISUAL --- */
+        .login-visual-side {
+          flex: 1.2;
+          background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2053&auto=format&fit=crop');
+          background-size: cover;
+          background-position: center;
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
 
-        .auth-form-footer {
-          text-align: center;
-          margin-top: 1.5rem;
+        .visual-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(135deg, rgba(14, 116, 144, 0.9), rgba(6, 182, 212, 0.7));
         }
 
-        .auth-form-footer p {
-          margin: 0;
-          color: #6b7280;
-          font-size: 0.875rem;
+        .visual-content {
+          position: relative;
+          z-index: 2;
+          width: 90%;
+          max-width: 480px;
         }
 
-        .auth-link-primary {
-          color: var(--accent-color);
-          text-decoration: none;
-          font-weight: 600;
-          transition: color 0.3s;
+        .glass-card {
+          background: rgba(255, 255, 255, 0.1);
+          backdrop-filter: blur(12px);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          border-radius: 24px;
+          padding: 40px;
+          color: white;
         }
 
-        .auth-link-primary:hover {
-          color: #038a9e;
+        .glass-icon {
+          width: 64px;
+          height: 64px;
+          background: rgba(255, 255, 255, 0.2);
+          border-radius: 16px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 32px;
+          margin-bottom: 24px;
         }
 
-        .auth-error-message {
-          background: #fee2e2;
-          color: #dc2626;
-          padding: 0.875rem 1rem;
-          border-radius: 12px;
-          margin-bottom: 1.5rem;
-          font-size: 0.875rem;
-          border: 1px solid #fecaca;
+        .glass-card h3 {
+          font-size: 28px;
+          font-weight: 700;
+          margin-bottom: 12px;
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-          .auth-page-wrapper {
-            padding: 1.5rem 1rem;
-          }
-
-          .auth-form-card {
-            padding: 2rem 1.5rem;
-            border-radius: 20px;
-          }
-
-          .auth-brand {
-            margin-bottom: 2rem;
-          }
+        .glass-card p {
+          font-size: 18px;
+          line-height: 1.6;
+          opacity: 0.9;
+          margin-bottom: 32px;
         }
 
-        @media (max-width: 576px) {
-          .auth-left-column {
-            padding: 1.5rem 1rem;
-          }
+        .stats-row {
+          display: flex;
+          gap: 40px;
+          border-top: 1px solid rgba(255, 255, 255, 0.2);
+          padding-top: 24px;
+        }
 
-          .auth-form-card {
-            padding: 1.5rem 1rem;
-            border-radius: 20px;
-          }
+        .stat-num {
+          font-size: 24px;
+          font-weight: 700;
+          display: block;
+        }
 
-          .auth-form-title {
-            font-size: 1.5rem;
-          }
+        .stat-desc {
+          font-size: 14px;
+          opacity: 0.8;
+        }
 
-          .auth-brand-icon,
-          .auth-form-icon {
-            width: 56px;
-            height: 56px;
-          }
+        .loader {
+          width: 24px;
+          height: 24px;
+          border: 3px solid #FFF;
+          border-bottom-color: transparent;
+          border-radius: 50%;
+          display: inline-block;
+          animation: rotation 1s linear infinite;
+        }
 
-          .auth-brand-icon i,
-          .auth-form-icon i {
-            font-size: 1.5rem;
-          }
+        @keyframes rotation {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
 
-          .auth-social-buttons {
-            grid-template-columns: 1fr;
-          }
+        @media (max-width: 992px) {
+          .login-visual-side { display: none; }
         }
       `}</style>
-      </div>
-    </>
+    </div>
   );
 };
 
