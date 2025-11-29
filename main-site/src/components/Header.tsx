@@ -319,6 +319,11 @@ const Header = () => {
                   </Link>
                 </li>
                 <li>
+                  <Link to="/profile" onClick={closeMobileNav}>
+                    <i className="bi bi-person-circle me-2"></i>My Profile
+                  </Link>
+                </li>
+                <li>
                   <Link to="/sign-in" onClick={closeMobileNav}>
                     <i className="bi bi-box-arrow-in-right me-2"></i>Sign In
                   </Link>

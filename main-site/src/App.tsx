@@ -22,6 +22,7 @@ import Terms from './pages/Terms'
 import Privacy from './pages/Privacy'
 import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
+import Profile from './pages/Profile'
 import NotFound from './pages/NotFound'
 
 function App() {
@@ -83,6 +84,7 @@ function App() {
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

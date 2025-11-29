@@ -90,7 +90,7 @@ const About = () => {
                   <h3>Accreditations &amp; Certifications</h3>
                   <p>We are proud to be accredited by leading healthcare organizations</p>
                 </div>
-                <div className="certifications-grid">
+                <div className="certifications-25+grid">
                   {[1, 2, 3, 4, 5, 6].map((num) => (
                     <div key={num} className="certification-item">
                       <img src={`/assets/img/clients/clients-${num}.webp`} alt="Certification" className="img-fluid" />
