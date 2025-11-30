@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import AOS from 'aos'
-import PageTitle from '../components/PageTitle'
+import PageHero from '../components/PageHero'
 
 const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
@@ -92,14 +92,15 @@ const FAQ = () => {
 
   return (
     <div className="faq-page">
-      <PageTitle
-        title="Frequently Asked Questions"
-        description="Find answers to common questions about our services."
-        breadcrumbs={[
-          { label: 'Home', path: '/' },
-          { label: 'FAQ' }
-        ]}
-      />
+      <PageHero
+  title="Frequently Asked Questions"
+  description="Quick answers to common queries about our hospital and services."
+  breadcrumbs={[
+    { label: 'Home', path: '/' },
+    { label: 'FAQ' }
+  ]}
+/>
+
 
       {/* Search and Filter Section */}
       <section className="faq-controls section">

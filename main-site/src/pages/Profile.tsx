@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import AOS from 'aos'
-import PageTitle from '../components/PageTitle'
+import PageHero from '../components/PageHero'
 
 const Profile = () => {
   const [activeTab, setActiveTab] = useState('personal')
@@ -302,14 +302,15 @@ const Profile = () => {
 
   return (
     <div className="profile-page">
-      <PageTitle
+      <PageHero
         title="My Profile"
-        description="Manage your account settings and personal information"
+        description="Update and manage your personal details, preferences, and account information."
         breadcrumbs={[
           { label: 'Home', path: '/' },
           { label: 'Profile' }
         ]}
       />
+
 
       <section className="profile section">
         <div className="container" data-aos="fade-up">
