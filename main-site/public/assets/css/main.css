@@ -6439,6 +6439,332 @@ section,
   }
 }
 
+/* Home Care Section */
+.home-care {
+  background-color: #fafbfc;
+  padding: 80px 0;
+}
+
+.home-care .home-care-badge {
+  color: var(--accent-color);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.home-care .home-care-title {
+  font-size: 2.5rem;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  color: var(--heading-color);
+}
+
+.home-care .home-care-description {
+  font-size: 1.1rem;
+  color: var(--default-color);
+  margin-bottom: 30px;
+}
+
+.home-care-card {
+  background: var(--surface-color);
+  border-left: 5px solid var(--accent-color);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+  transition: 0.3s;
+}
+
+.home-care-card:hover {
+  background: var(--accent-color);
+  transform: translateY(-5px);
+}
+
+.home-care-card:hover h4,
+.home-care-card:hover p,
+.home-care-card:hover i {
+  color: var(--contrast-color) !important;
+}
+
+.home-care-card i {
+  color: var(--heading-color);
+}
+
+.home-care-card h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--heading-color);
+}
+
+.home-care-card p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--default-color);
+}
+
+.home-care .home-care-btn {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.home-care-img-wrapper {
+  position: relative;
+}
+
+.home-care-img-wrapper img {
+  border-radius: 20px;
+  box-shadow: var(--shadow-hover);
+}
+
+.floating-badge {
+  position: absolute;
+  bottom: 30px;
+  right: -20px;
+  background: var(--surface-color);
+  padding: 15px 25px;
+  border-radius: 15px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.floating-badge .icon-box {
+  width: 50px;
+  height: 50px;
+  background: var(--accent-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--contrast-color);
+}
+
+.floating-badge strong {
+  display: block;
+  color: var(--heading-color);
+}
+
+.floating-badge span {
+  color: var(--default-color);
+  font-size: 0.875rem;
+}
+
+/* Packages Section */
+.packages {
+  padding: 80px 0;
+}
+
+.packages .section-title {
+  margin-bottom: 50px;
+}
+
+.packages .package-card {
+  background: var(--surface-color);
+  border: 1px solid #eee;
+  border-radius: 20px;
+  padding: 40px 30px;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+.packages .package-card:hover {
+  box-shadow: var(--shadow-hover);
+  border-color: var(--accent-color);
+}
+
+.packages .package-card.featured {
+  background: #ffffff;
+  border: 2px solid var(--accent-color);
+  transform: scale(1.05);
+  z-index: 2;
+  box-shadow: 0 10px 40px rgba(4, 158, 187, 0.2);
+}
+
+.packages .popular-badge {
+  background: var(--accent-gradient);
+  color: var(--contrast-color);
+  padding: 8px 30px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  position: absolute;
+  top: 20px;
+  right: -30px;
+  transform: rotate(45deg);
+  width: 150px;
+}
+
+.packages .package-title {
+  color: var(--heading-color);
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.packages .package-subtitle {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  margin-bottom: 0;
+}
+
+.packages .package-price {
+  color: var(--accent-color);
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 20px 0;
+  font-family: sans-serif;
+}
+
+.packages .package-price span {
+  font-size: 1rem;
+  color: var(--default-color);
+  font-weight: 400;
+}
+
+.packages hr {
+  opacity: 0.1;
+  margin: 20px 0;
+}
+
+.packages .package-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: 280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.packages .package-features li {
+  margin-bottom: 12px;
+  color: var(--default-color);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.packages .package-features li i {
+  color: var(--accent-color);
+  margin-right: 10px;
+}
+
+.packages .btn-package {
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: 0.3s;
+  width: 100%;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.packages .btn-package.outline {
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
+  background: transparent;
+}
+
+.packages .btn-package.outline:hover {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+.packages .btn-package.filled {
+  background: var(--accent-gradient);
+  color: var(--contrast-color);
+  border: none;
+  box-shadow: 0 5px 15px rgba(4, 158, 187, 0.4);
+}
+
+/* Workflow Section */
+.workflow {
+  background-color: #fafbfc;
+  padding: 80px 0;
+}
+
+.workflow .section-title {
+  margin-bottom: 60px;
+}
+
+.workflow .workflow-step {
+  position: relative;
+  padding: 30px 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.workflow .workflow-step:hover .step-icon {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  transform: rotateY(360deg);
+}
+
+.workflow .step-icon {
+  width: 80px;
+  height: 80px;
+  background: var(--accent-light);
+  color: var(--accent-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin: 0 auto 25px;
+  transition: all 0.5s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.workflow .step-count {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: var(--heading-color);
+  color: var(--contrast-color);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #fff;
+}
+
+.workflow .workflow-step h4 {
+  color: var(--heading-color);
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.workflow .workflow-step p {
+  color: var(--default-color);
+  font-size: 0.95rem;
+}
+
+/* Desktop Connector Line */
+@media (min-width: 992px) {
+  .workflow .workflow-step::after {
+    content: '';
+    position: absolute;
+    top: 70px;
+    right: -50%;
+    width: 100%;
+    height: 2px;
+    background-image: linear-gradient(to right, var(--accent-color) 50%, transparent 50%);
+    background-size: 20px 100%;
+    opacity: 0.3;
+    z-index: 1;
+  }
+
+  .workflow .col-lg-3:last-child .workflow-step::after {
+    display: none;
+  }
+}
+
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/

@@ -610,13 +610,12 @@ const Home = () => {
                       {[...Array(5)].map((_, i) => (
                         <i
                           key={i}
-                          className={`bi bi-star${
-                            i < Math.floor(doctor.stars)
-                              ? "-fill"
-                              : i < doctor.stars
+                          className={`bi bi-star${i < Math.floor(doctor.stars)
+                            ? "-fill"
+                            : i < doctor.stars
                               ? "-half"
                               : ""
-                          }`}
+                            }`}
                         ></i>
                       ))}
                       <span className="rating-text">({doctor.rating})</span>
@@ -814,9 +813,8 @@ const Home = () => {
                 ].map((contact, idx) => (
                   <div key={idx} className="col-md-6 mb-4">
                     <div
-                      className={`contact-card ${
-                        contact.urgent ? "urgent" : ""
-                      }`}
+                      className={`contact-card ${contact.urgent ? "urgent" : ""
+                        }`}
                     >
                       <div className="card-icon">
                         <i className={contact.icon}></i>
@@ -924,6 +922,168 @@ const Home = () => {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- NEW SECTION: Home Care Services --- */}
+      <section id="home-care" className="home-care section">
+        <div className="container" data-aos="fade-up">
+          <div className="row align-items-center gy-5">
+
+            <div className="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+              <div className="home-care-content">
+                <span className="home-care-badge">
+                  Hospital at Home
+                </span>
+                <h2 className="home-care-title">
+                  Professional Home Care Services
+                </h2>
+                <p className="home-care-description">
+                  We bring world-class medical assistance to your doorstep. Perfect for post-surgery recovery,
+                  elderly care, or chronic disease management.
+                </p>
+
+                <div className="row g-4 mb-4">
+                  {[
+                    { title: "Nursing Care", desc: "Injections, wound dressing, and vitals monitoring.", icon: "bi-activity" },
+                    { title: "Physiotherapy", desc: "Rehab sessions at the comfort of your home.", icon: "bi-person-arms-up" },
+                    { title: "Medical Equipment", desc: "Oxygen, beds, and wheelchair rentals.", icon: "bi-tools" },
+                    { title: "Lab at Home", desc: "Sample collection and instant reports.", icon: "bi-eyedropper" },
+                  ].map((service, idx) => (
+                    <div className="col-md-6" key={idx}>
+                      <div className="home-care-card rounded-3 h-100">
+                        <i className={`bi ${service.icon} fs-3 mb-2 d-block`}></i>
+                        <h4>{service.title}</h4>
+                        <p className="m-0 small text-muted">{service.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <Link to="/home-care" className="btn btn-primary btn-lg rounded-pill home-care-btn">
+                  Schedule Home Visit
+                </Link>
+              </div>
+            </div>
+
+            <div className="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+              <div className="home-care-img-wrapper ps-lg-5">
+                <img
+                  src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?q=80&w=2070&auto=format&fit=crop"
+                  alt="Medical professional visiting patient at home"
+                  className="img-fluid w-100 object-fit-cover"
+                  style={{ borderRadius: '20px', minHeight: '400px' }}
+                />
+                <div className="floating-badge">
+                  <div className="icon-box rounded-circle d-flex align-items-center justify-content-center text-white">
+                    <i className="bi bi-clock-history fs-4"></i>
+                  </div>
+                  <div>
+                    <strong className="d-block text-dark">Available 24/7</strong>
+                    <span className="text-muted small">For Emergencies</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* --- REDESIGNED: Health Packages Section --- */}
+      <section id="packages" className="packages section">
+        <div className="container section-title text-center" data-aos="fade-up">
+          <h2>Exclusive Health Packages</h2>
+          <p>Preventive care tailored for every stage of life.</p>
+        </div>
+
+        <div className="container">
+          <div className="row gy-4 align-items-center justify-content-center">
+            {[
+              {
+                title: "Basic Checkup",
+                price: "99",
+                subtitle: "For Individuals",
+                features: ["Complete Blood Count (CBC)", "Blood Sugar Fasting", "Urine Routine Analysis", "General Physician Consult"],
+                featured: false,
+                delay: "100"
+              },
+              {
+                title: "Comprehensive",
+                price: "199",
+                subtitle: "Most Recommended",
+                features: ["All Basic Features", "Liver & Kidney Function", "Thyroid Profile", "ECG & Chest X-Ray", "Dental Screening"],
+                featured: true,
+                delay: "200"
+              },
+              {
+                title: "Senior Citizen",
+                price: "299",
+                subtitle: "Advanced Care",
+                features: ["Full Body Analysis", "Cardiac Risk Markers", "Vitamin D & B12 Levels", "Cancer Screening Markers", "Home Sample Collection"],
+                featured: false,
+                delay: "300"
+              },
+            ].map((pkg, idx) => (
+              <div className="col-lg-4 col-md-6" key={idx} data-aos="fade-up" data-aos-delay={pkg.delay}>
+                <div className={`package-card ${pkg.featured ? 'featured' : ''}`}>
+                  {pkg.featured && <div className="popular-badge">Best Value</div>}
+
+                  <h3 className="package-title">{pkg.title}</h3>
+                  <p className="package-subtitle">{pkg.subtitle}</p>
+
+                  <div className="package-price">
+                    <sup>$</sup>{pkg.price}<span>/session</span>
+                  </div>
+
+                  <hr />
+
+                  <ul className="package-features">
+                    {pkg.features.map((f, i) => (
+                      <li key={i}>
+                        <i className="bi bi-check-circle-fill me-2"></i>
+                        <span>{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <Link to="/book-package" className={`btn-package ${pkg.featured ? 'filled' : 'outline'}`}>
+                    Book Now
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* --- REDESIGNED: Workflow / Process Section --- */}
+      <section id="workflow" className="workflow section">
+        <div className="container section-title text-center" data-aos="fade-up">
+          <h2>Simple Steps to Better Health</h2>
+          <p>We have streamlined the process to save your time.</p>
+        </div>
+
+        <div className="container">
+          <div className="row gy-4">
+            {[
+              { step: "1", title: "Find Doctor", desc: "Search by name, specialty, or condition.", icon: "bi-search-heart" },
+              { step: "2", title: "Book Slot", desc: "Choose a time that fits your schedule.", icon: "bi-calendar-date" },
+              { step: "3", title: "Instant Confirm", desc: "Receive booking details via SMS/Email.", icon: "bi-patch-check" },
+              { step: "4", title: "Visit Hospital", desc: "Skip the queue and get treated.", icon: "bi-hospital" },
+            ].map((item, idx) => (
+              <div className="col-lg-3 col-md-6" key={idx} data-aos="fade-up" data-aos-delay={100 * idx}>
+                <div className="workflow-step">
+                  <div className="step-icon">
+                    <i className={`bi ${item.icon}`}></i>
+                    <div className="step-count">{item.step}</div>
+                  </div>
+                  <h4>{item.title}</h4>
+                  <p>{item.desc}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
