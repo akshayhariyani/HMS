@@ -738,6 +738,35 @@ const Home = () => {
           </div>
         </div>
       </section>
+      {/* Testimonials Section */}
+      <section id="testimonials" className="testimonials section">
+        <div className="container section-title" data-aos="fade-up">
+          <h2>What Our Patients Say</h2>
+        </div>
+        <div className="container" data-aos="fade-up" data-aos-delay="100">
+          <div className="row gy-4">
+            {[
+              { name: "John Doe", role: "Cardiac Patient", quote: "The care I received was exceptional. The staff was attentive and the doctors were world-class." },
+              { name: "Jane Smith", role: "Maternity", quote: "A wonderful experience for our family. The facilities are top-notch and very clean." },
+              { name: "Robert Wilson", role: "Emergency Care", quote: "Fast response time and professional handling of my injury. Highly recommended." }
+            ].map((testi, idx) => (
+              <div className="col-lg-4" key={idx}>
+                <div className="testimonial-item bg-light p-4 rounded-3 h-100 position-relative">
+                  <i className="bi bi-quote fs-1 text-primary opacity-25 position-absolute top-0 start-0 m-3"></i>
+                  <p className="mt-4 fst-italic">"{testi.quote}"</p>
+                  <div className="d-flex align-items-center mt-3">
+                    <div className="profile-img bg-secondary rounded-circle" style={{ width: '50px', height: '50px' }}></div>
+                    <div className="ms-3">
+                      <h5 className="mb-0">{testi.name}</h5>
+                      <small className="text-muted">{testi.role}</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Emergency Info Section */}
       <section id="emergency-info" className="emergency-info section">
