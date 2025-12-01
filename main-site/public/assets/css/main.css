@@ -14,30 +14,29 @@
 --------------------------------------------------------------*/
 /* Fonts */
 :root {
-  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Raleway",  sans-serif;
-  --nav-font: "Lato",  sans-serif;
+  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Raleway", sans-serif;
+  --nav-font: "Lato", sans-serif;
 }
 
-/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
-:root { 
-  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
-  --default-color: #2c3031; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #18444c; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #049ebb; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
-}
-
-/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
-  --nav-color: #496268;  /* The default color of the main navmenu links */
-  --nav-hover-color: #049ebb; /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
-  --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
-  --nav-dropdown-color: #496268; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #049ebb; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --background-color: #ffffff;
+  --default-color: #2c3031;
+  --heading-color: #18444c;
+  --accent-color: #049ebb;
+  --surface-color: #ffffff;
+  --contrast-color: #ffffff;
 }
+
+:root {
+  --nav-color: #496268;
+  --nav-hover-color: #049ebb;
+  --nav-mobile-background-color: #ffffff;
+  --nav-dropdown-background-color: #ffffff;
+  --nav-dropdown-color: #496268;
+  --nav-dropdown-hover-color: #049ebb;
+}
+
 .light-background {
   --background-color: #f2f8f9;
   --surface-color: #ffffff;
@@ -4880,9 +4879,9 @@ section,
   width: 100%;
   height: 100%;
   background: linear-gradient(135deg,
-    color-mix(in srgb, var(--accent-color), transparent 90%) 0%,
-    color-mix(in srgb, var(--accent-color), transparent 95%) 50%,
-    color-mix(in srgb, var(--surface-color), transparent 20%) 100%);
+      color-mix(in srgb, var(--accent-color), transparent 90%) 0%,
+      color-mix(in srgb, var(--accent-color), transparent 95%) 50%,
+      color-mix(in srgb, var(--surface-color), transparent 20%) 100%);
   z-index: 2;
 }
 
@@ -6673,10 +6672,15 @@ section,
 }
 
 .packages .btn-package.filled {
-  background: var(--accent-gradient);
-  color: var(--contrast-color);
-  border: none;
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
+  background: transparent;
   box-shadow: 0 5px 15px rgba(4, 158, 187, 0.4);
+}
+
+.packages .btn-package.filled:hover {
+  background: var(--accent-color);
+  color: var(--contrast-color);
 }
 
 /* Workflow Section */
@@ -6772,4 +6776,134 @@ section,
   padding-top: 60px;
   padding-bottom: 60px;
   /* Add your styles here */
+}
+
+/* --- Unique Testimonials Section --- */
+.testimonials-section {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Background decorative circle */
+.testimonials-section::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--accent-light) 0%, transparent 70%);
+  z-index: -1;
+  opacity: 0.5;
+}
+
+/* Left Side: Trust Anchor Card */
+.trust-summary-card {
+  background: linear-gradient(135deg, var(--heading-color) 0%, var(--accent-color) 100%);
+  color: var(--contrast-color);
+  border-radius: 20px;
+  padding: 40px;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(32, 99, 110, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.trust-summary-card::after {
+  content: '\F519'; /* Bootstrap icon quote code */
+  font-family: 'bootstrap-icons';
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  font-size: 15rem;
+  opacity: 0.05;
+  color: var(--contrast-color);
+  transform: rotate(-10deg);
+}
+
+.total-rating-display {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--surface-color);
+  margin-bottom: 10px;
+}
+
+.star-row i {
+  color: #ffc107; /* Gold for stars */
+  font-size: 1.2rem;
+  margin-right: 2px;
+}
+
+/* Right Side: Review Cards */
+.review-card {
+  background: var(--surface-color);
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 25px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+  border: 1px solid rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.review-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(4, 158, 187, 0.1);
+  border-color: var(--accent-light);
+}
+
+.patient-profile {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.patient-img {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent-color);
+  padding: 2px;
+}
+
+.patient-info h5 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--heading-color);
+  margin: 0;
+}
+
+.treatment-badge {
+  font-size: 0.75rem;
+  background: var(--accent-light);
+  color: var(--accent-color);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+  display: inline-block;
+  margin-top: 4px;
+}
+
+.review-text {
+  color: var(--default-color);
+  font-style: italic;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  position: relative;
+  z-index: 2;
+}
+
+.quote-mark-small {
+  color: var(--accent-color);
+  font-size: 1.5rem;
+  opacity: 0.3;
+  vertical-align: top;
+  margin-right: 5px;
 }

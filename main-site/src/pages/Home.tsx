@@ -154,230 +154,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Home About Section */}
-      <section id="home-about" className="home-about section">
-        <div className="container" data-aos="fade-up" data-aos-delay="100">
-          <div className="row gy-5 align-items-center">
-            <div
-              className="col-lg-6"
-              data-aos="fade-right"
-              data-aos-delay="200"
-            >
-              <div className="about-image">
-                <img
-                  src="/assets/img/health/facilities-1.webp"
-                  alt="Modern Healthcare Facility"
-                  className="img-fluid rounded-3 mb-4"
-                />
-                <div className="experience-badge">
-                  <span className="years">25+</span>
-                  <span className="text">Years of Excellence</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-lg-6" data-aos="fade-left" data-aos-delay="300">
-              <div className="about-content">
-                <h2>Committed to Exceptional Patient Care</h2>
-                <p className="lead">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                  elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus
-                  leo.
-                </p>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-                  consequat magna eu accumsan mattis. Duis non augue in tortor
-                  facilisis tincidunt ac sit amet sapien. Suspendisse id risus
-                  non nisi sodales condimentum.
-                </p>
-
-                <div className="row g-4 mt-4">
-                  <div
-                    className="col-md-6"
-                    data-aos="fade-up"
-                    data-aos-delay="400"
-                  >
-                    <div className="feature-item">
-                      <div className="icon">
-                        <i className="bi bi-heart-pulse"></i>
-                      </div>
-                      <h4>Compassionate Care</h4>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div
-                    className="col-md-6"
-                    data-aos="fade-up"
-                    data-aos-delay="500"
-                  >
-                    <div className="feature-item">
-                      <div className="icon">
-                        <i className="bi bi-star"></i>
-                      </div>
-                      <h4>Medical Excellence</h4>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="cta-wrapper mt-4">
-                  <Link to="/about" className="btn btn-primary">
-                    Learn More About Us
-                  </Link>
-                  <Link to="/doctors" className="btn btn-outline">
-                    Meet Our Team
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div
-            className="row mt-5 pt-4 certifications-row"
-            data-aos="fade-up"
-            data-aos-delay="600"
-          >
-            <div className="col-12 text-center mb-4">
-              <h4 className="certification-title">Our Accreditations</h4>
-            </div>
-            <div className="col-12">
-              <div className="certifications">
-                <div
-                  className="certification-item"
-                  data-aos="zoom-in"
-                  data-aos-delay="700"
-                >
-                  <img
-                    src="/assets/img/clients/clients-1.webp"
-                    alt="Certification"
-                  />
-                </div>
-                <div
-                  className="certification-item"
-                  data-aos="zoom-in"
-                  data-aos-delay="800"
-                >
-                  <img
-                    src="/assets/img/clients/clients-2.webp"
-                    alt="Certification"
-                  />
-                </div>
-                <div
-                  className="certification-item"
-                  data-aos="zoom-in"
-                  data-aos-delay="900"
-                >
-                  <img
-                    src="/assets/img/clients/clients-3.webp"
-                    alt="Certification"
-                  />
-                </div>
-                <div
-                  className="certification-item"
-                  data-aos="zoom-in"
-                  data-aos-delay="1000"
-                >
-                  <img
-                    src="/assets/img/clients/clients-4.webp"
-                    alt="Certification"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Departments Section */}
-      <section
-        id="featured-departments"
-        className="featured-departments section"
-      >
-        <div className="container section-title" data-aos="fade-up">
-          <h2>Featured Departments</h2>
-          <p>
-            Necessitatibus eius consequatur ex aliquid fuga eum quidem sint
-            consectetur velit
-          </p>
-        </div>
-
-        <div className="container" data-aos="fade-up" data-aos-delay="100">
-          <div className="row gy-4">
-            {[
-              {
-                img: "cardiology-3.webp",
-                icon: "fa-heartbeat",
-                title: "Cardiology",
-                desc: "Comprehensive cardiovascular care with advanced diagnostic techniques and treatment options for heart conditions, ensuring optimal cardiac health for all patients.",
-              },
-              {
-                img: "neurology-2.webp",
-                icon: "fa-brain",
-                title: "Neurology",
-                desc: "Expert neurological care specializing in brain and nervous system disorders, providing cutting-edge treatments and compassionate support for neurological conditions.",
-              },
-              {
-                img: "orthopedics-4.webp",
-                icon: "fa-bone",
-                title: "Orthopedics",
-                desc: "Advanced musculoskeletal care focusing on bones, joints, and muscles with innovative surgical and non-surgical treatment approaches for mobility restoration.",
-              },
-              {
-                img: "pediatrics-3.webp",
-                icon: "fa-baby",
-                title: "Pediatrics",
-                desc: "Specialized healthcare for children from infancy through adolescence, offering comprehensive medical care in a child-friendly environment with experienced pediatric specialists.",
-              },
-              {
-                img: "oncology-4.webp",
-                icon: "fa-shield-alt",
-                title: "Oncology",
-                desc: "Comprehensive cancer care with multidisciplinary approach, offering advanced treatment options, clinical trials, and compassionate support throughout the cancer journey.",
-              },
-              {
-                img: "emergency-2.webp",
-                icon: "fa-ambulance",
-                title: "Emergency Care",
-                desc: "Round-the-clock emergency medical services with rapid response capabilities, state-of-the-art equipment, and experienced emergency physicians for critical care.",
-              },
-            ].map((dept, idx) => (
-              <div
-                key={idx}
-                className="col-lg-4 col-md-6"
-                data-aos="fade-up"
-                data-aos-delay={100 + idx * 100}
-              >
-                <div className="department-card">
-                  <div className="department-image">
-                    <img
-                      src={`/assets/img/health/${dept.img}`}
-                      alt={`${dept.title} Department`}
-                      className="img-fluid"
-                    />
-                  </div>
-                  <div className="department-content">
-                    <div className="department-icon">
-                      <i className={`fas ${dept.icon}`}></i>
-                    </div>
-                    <h3>{dept.title}</h3>
-                    <p>{dept.desc}</p>
-                    <Link to="/department-details" className="btn-learn-more">
-                      <span>Learn More</span>
-                      <i className="fas fa-arrow-right"></i>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Featured Services Section */}
       <section
         id="featured-services"
@@ -738,28 +514,84 @@ const Home = () => {
           </div>
         </div>
       </section>
-      {/* Testimonials Section */}
-      <section id="testimonials" className="testimonials section">
+
+      {/* Featured Departments Section */}
+      <section
+        id="featured-departments"
+        className="featured-departments section"
+      >
         <div className="container section-title" data-aos="fade-up">
-          <h2>What Our Patients Say</h2>
+          <h2>Featured Departments</h2>
+          <p>
+            Necessitatibus eius consequatur ex aliquid fuga eum quidem sint
+            consectetur velit
+          </p>
         </div>
+
         <div className="container" data-aos="fade-up" data-aos-delay="100">
           <div className="row gy-4">
             {[
-              { name: "John Doe", role: "Cardiac Patient", quote: "The care I received was exceptional. The staff was attentive and the doctors were world-class." },
-              { name: "Jane Smith", role: "Maternity", quote: "A wonderful experience for our family. The facilities are top-notch and very clean." },
-              { name: "Robert Wilson", role: "Emergency Care", quote: "Fast response time and professional handling of my injury. Highly recommended." }
-            ].map((testi, idx) => (
-              <div className="col-lg-4" key={idx}>
-                <div className="testimonial-item bg-light p-4 rounded-3 h-100 position-relative">
-                  <i className="bi bi-quote fs-1 text-primary opacity-25 position-absolute top-0 start-0 m-3"></i>
-                  <p className="mt-4 fst-italic">"{testi.quote}"</p>
-                  <div className="d-flex align-items-center mt-3">
-                    <div className="profile-img bg-secondary rounded-circle" style={{ width: '50px', height: '50px' }}></div>
-                    <div className="ms-3">
-                      <h5 className="mb-0">{testi.name}</h5>
-                      <small className="text-muted">{testi.role}</small>
+              {
+                img: "cardiology-3.webp",
+                icon: "fa-heartbeat",
+                title: "Cardiology",
+                desc: "Comprehensive cardiovascular care with advanced diagnostic techniques and treatment options for heart conditions, ensuring optimal cardiac health for all patients.",
+              },
+              {
+                img: "neurology-2.webp",
+                icon: "fa-brain",
+                title: "Neurology",
+                desc: "Expert neurological care specializing in brain and nervous system disorders, providing cutting-edge treatments and compassionate support for neurological conditions.",
+              },
+              {
+                img: "orthopedics-4.webp",
+                icon: "fa-bone",
+                title: "Orthopedics",
+                desc: "Advanced musculoskeletal care focusing on bones, joints, and muscles with innovative surgical and non-surgical treatment approaches for mobility restoration.",
+              },
+              {
+                img: "pediatrics-3.webp",
+                icon: "fa-baby",
+                title: "Pediatrics",
+                desc: "Specialized healthcare for children from infancy through adolescence, offering comprehensive medical care in a child-friendly environment with experienced pediatric specialists.",
+              },
+              {
+                img: "oncology-4.webp",
+                icon: "fa-shield-alt",
+                title: "Oncology",
+                desc: "Comprehensive cancer care with multidisciplinary approach, offering advanced treatment options, clinical trials, and compassionate support throughout the cancer journey.",
+              },
+              {
+                img: "emergency-2.webp",
+                icon: "fa-ambulance",
+                title: "Emergency Care",
+                desc: "Round-the-clock emergency medical services with rapid response capabilities, state-of-the-art equipment, and experienced emergency physicians for critical care.",
+              },
+            ].map((dept, idx) => (
+              <div
+                key={idx}
+                className="col-lg-4 col-md-6"
+                data-aos="fade-up"
+                data-aos-delay={100 + idx * 100}
+              >
+                <div className="department-card">
+                  <div className="department-image">
+                    <img
+                      src={`/assets/img/health/${dept.img}`}
+                      alt={`${dept.title} Department`}
+                      className="img-fluid"
+                    />
+                  </div>
+                  <div className="department-content">
+                    <div className="department-icon">
+                      <i className={`fas ${dept.icon}`}></i>
                     </div>
+                    <h3>{dept.title}</h3>
+                    <p>{dept.desc}</p>
+                    <Link to="/department-details" className="btn-learn-more">
+                      <span>Learn More</span>
+                      <i className="fas fa-arrow-right"></i>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -768,6 +600,152 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Home About Section */}
+      <section id="home-about" className="home-about section">
+        <div className="container section-title" data-aos="fade-up">
+          <h2>About Us</h2>
+          <p>
+            Necessitatibus eius consequatur ex aliquid fuga eum quidem sint
+            consectetur velit
+          </p>
+        </div>
+
+        <div className="container" data-aos="fade-up" data-aos-delay="100">
+          <div className="row gy-5 align-items-center">
+            <div
+              className="col-lg-6"
+              data-aos="fade-right"
+              data-aos-delay="200"
+            >
+              <div className="about-image">
+                <img
+                  src="/assets/img/health/facilities-1.webp"
+                  alt="Modern Healthcare Facility"
+                  className="img-fluid rounded-3 mb-4"
+                />
+                <div className="experience-badge">
+                  <span className="years">25+</span>
+                  <span className="text">Years of Excellence</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-lg-6" data-aos="fade-left" data-aos-delay="300">
+              <div className="about-content">
+                <h2>Committed to Exceptional Patient Care</h2>
+                <p className="lead">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+                  elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus
+                  leo.
+                </p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+                  consequat magna eu accumsan mattis. Duis non augue in tortor
+                  facilisis tincidunt ac sit amet sapien. Suspendisse id risus
+                  non nisi sodales condimentum.
+                </p>
+
+                <div className="row g-4 mt-4">
+                  <div
+                    className="col-md-6"
+                    data-aos="fade-up"
+                    data-aos-delay="400"
+                  >
+                    <div className="feature-item">
+                      <div className="icon">
+                        <i className="bi bi-heart-pulse"></i>
+                      </div>
+                      <h4>Compassionate Care</h4>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div
+                    className="col-md-6"
+                    data-aos="fade-up"
+                    data-aos-delay="500"
+                  >
+                    <div className="feature-item">
+                      <div className="icon">
+                        <i className="bi bi-star"></i>
+                      </div>
+                      <h4>Medical Excellence</h4>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="cta-wrapper mt-4">
+                  <Link to="/about" className="btn btn-primary">
+                    Learn More About Us
+                  </Link>
+                  <Link to="/doctors" className="btn btn-outline">
+                    Meet Our Team
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            className="row mt-5 pt-4 certifications-row"
+            data-aos="fade-up"
+            data-aos-delay="600"
+          >
+            <div className="col-12 text-center mb-4">
+              <h4 className="certification-title">Our Accreditations</h4>
+            </div>
+            <div className="col-12">
+              <div className="certifications">
+                <div
+                  className="certification-item"
+                  data-aos="zoom-in"
+                  data-aos-delay="700"
+                >
+                  <img
+                    src="/assets/img/clients/clients-1.webp"
+                    alt="Certification"
+                  />
+                </div>
+                <div
+                  className="certification-item"
+                  data-aos="zoom-in"
+                  data-aos-delay="800"
+                >
+                  <img
+                    src="/assets/img/clients/clients-2.webp"
+                    alt="Certification"
+                  />
+                </div>
+                <div
+                  className="certification-item"
+                  data-aos="zoom-in"
+                  data-aos-delay="900"
+                >
+                  <img
+                    src="/assets/img/clients/clients-3.webp"
+                    alt="Certification"
+                  />
+                </div>
+                <div
+                  className="certification-item"
+                  data-aos="zoom-in"
+                  data-aos-delay="1000"
+                >
+                  <img
+                    src="/assets/img/clients/clients-4.webp"
+                    alt="Certification"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       {/* Emergency Info Section */}
       <section id="emergency-info" className="emergency-info section">
         <div className="container section-title" data-aos="fade-up">
@@ -1113,6 +1091,119 @@ const Home = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Unique Testimonials Section */}
+      <section id="testimonials" className="testimonials-section section" style={{ padding: '80px 0' }}>
+        <div className="container" data-aos="fade-up">
+
+          <div className="row g-5">
+
+            {/* LEFT COLUMN: The "Trust Anchor" (Summary) */}
+            <div className="col-lg-4" data-aos="fade-right">
+              <div className="trust-summary-card">
+                <h3 className="mb-4">Why Patients Trust Us</h3>
+                <p className="opacity-75 mb-4">
+                  Our commitment to excellence is reflected in the smiles of our recovered patients.
+                </p>
+
+                <div className="mb-4">
+                  <div className="total-rating-display">4.9</div>
+                  <div className="star-row mb-2">
+                    <i className="bi bi-star-fill"></i>
+                    <i className="bi bi-star-fill"></i>
+                    <i className="bi bi-star-fill"></i>
+                    <i className="bi bi-star-fill"></i>
+                    <i className="bi bi-star-fill"></i>
+                  </div>
+                  <span className="text-white-50">Based on 2,400+ Reviews</span>
+                </div>
+
+                <hr style={{ borderColor: 'rgba(255,255,255,0.1)' }} />
+
+                <div className="d-flex align-items-center mt-3">
+                  <div className="me-3">
+                    <h2 className="mb-0 text-white">15k+</h2>
+                  </div>
+                  <div className="text-white-50 lh-sm">
+                    Successful<br />Surgeries
+                  </div>
+                </div>
+
+                <div className="mt-auto pt-5">
+                  <button className="btn btn-light w-100 rounded-pill fw-bold text-dark">
+                    Share Your Story
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* RIGHT COLUMN: The Reviews Grid */}
+            <div className="col-lg-8">
+              <div className="row">
+                <div className="col-12 mb-4">
+                  <h2 style={{ color: 'var(--heading-color)', fontWeight: 'bold' }}>Patient Stories</h2>
+                  <p style={{ color: 'var(--default-color)' }}>Real experiences from real people.</p>
+                </div>
+              </div>
+
+              <div className="row g-4">
+                {[
+                  {
+                    name: "Sarah Jenkins",
+                    treatment: "Cardiology",
+                    img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=2588&auto=format&fit=crop",
+                    text: "Dr. Mitchell saved my life. The level of care I received during my heart surgery was phenomenal. The nurses were angels.",
+                    delay: 100
+                  },
+                  {
+                    name: "Michael Ross",
+                    treatment: "Orthopedics",
+                    img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=2574&auto=format&fit=crop",
+                    text: "I was back on my feet in weeks after my knee replacement. The rehabilitation facility here is world-class.",
+                    delay: 200
+                  },
+                  {
+                    name: "Emily & Baby Leo",
+                    treatment: "Maternity",
+                    img: "https://images.unsplash.com/photo-1554774853-d39f79c2a36a?q=80&w=2574&auto=format&fit=crop",
+                    text: "Giving birth here was a dream. The private suites are comfortable and the midwives were so supportive throughout.",
+                    delay: 300
+                  },
+                  {
+                    name: "David Chen",
+                    treatment: "Neurology",
+                    img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=2574&auto=format&fit=crop",
+                    text: "Professional, clean, and efficient. I never had to wait long for my appointments, and the diagnosis was spot on.",
+                    delay: 400
+                  }
+                ].map((review, idx) => (
+                  <div className="col-md-6" key={idx} data-aos="fade-up" data-aos-delay={review.delay}>
+                    <div className="review-card h-100">
+                      <div className="patient-profile">
+                        <img src={review.img} alt={review.name} className="patient-img" />
+                        <div className="patient-info">
+                          <h5>{review.name}</h5>
+                          <span className="treatment-badge">{review.treatment}</span>
+                        </div>
+                      </div>
+                      <div className="star-row mb-3" style={{ fontSize: '0.8rem' }}>
+                        {[...Array(5)].map((_, i) => (
+                          <i key={i} className="bi bi-star-fill text-warning"></i>
+                        ))}
+                      </div>
+                      <p className="review-text">
+                        <i className="bi bi-quote quote-mark-small"></i>
+                        {review.text}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
